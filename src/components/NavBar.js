@@ -1,27 +1,28 @@
 import { useEffect, useState } from "react";
-import {Navbar, Container} from - "react-Bootstrap";
+import { Navbar, Container } from - "react-Bootstrap";
 
 export const NavBar = () => 
 {
     const [activeLink, setActiveLink] = useState('home');
-    const [scrolled, seScrolled] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
+    //We need to detect user scrolling to modify the background as they do
     useEffect(() => 
     {
         const onScroll = () => 
         {
             if (window.scrollY > 50)
             {
-                seScrolled(true);
+                setScrolled(true);
             } else
             {
-                seScrolled(false);
+                setScrolled(false);
             }
         }
 
-        window.addEventListener("scroll", onscroll);
+        window.addEventListener("scroll", onScroll);
 
-        return () => window.removeEventListener
+        return () => window.removeEventListener("scroll". onScroll);
     }, [])
 
     return 
@@ -36,9 +37,9 @@ export const NavBar = () =>
                 </Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#skills">Skills</Nav.Link>
-                    <Nav.Link href="#projects">Projects</Nav.Link>
+                    <Nav.Link href="#home" className = {activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpfateActiveLink('home')}>Home</Nav.Link>
+                    <Nav.Link href="#skills"className = {activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'}>Skills</Nav.Link>
+                    <Nav.Link href="#projects"className = {activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}>Projects</Nav.Link>
                 </Nav>
                 <span className="navbar-text">
                     <div className="social-icon">
