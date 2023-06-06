@@ -27,7 +27,7 @@ export const NavBar = () =>
 
         window.addEventListener("scroll", onScroll);
 
-        return () => window.removeEventListener("scroll". onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
     }, [])
 
     const onUpdateActiveLink = (value) => 
@@ -36,7 +36,7 @@ export const NavBar = () =>
     }
 
     return (
-        <Navbar bg="light" expand="lg" className={scrolled ? "scrolled": ""}>
+        <Navbar expand="lg" className={scrolled ? "scrolled": ""}>
             <Container>
                 <Navbar.Brand href="#home">
                     <img src={logo} alt="Logo" />
@@ -53,7 +53,7 @@ export const NavBar = () =>
                 <span className="navbar-text">
                     <div className="social-icon">
                         <a href="#"><img src={navIcon1} alt=""/></a>
-                         <a href="#"><img src={navIcon2} alt=""/></a>
+                        <a href="#"><img src={navIcon2} alt=""/></a>
                         <a href="#"><img src={navIcon3} alt=""/></a>
                     </div>
                     <button className="vvd" onClick={() => console.log('connect')}><span>Let's Connect</span></button>
